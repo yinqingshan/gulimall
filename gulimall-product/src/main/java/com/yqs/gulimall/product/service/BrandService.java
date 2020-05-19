@@ -13,8 +13,8 @@ import java.util.Map;
  * @email yinqingshan@gmail.com
  * @date 2020-05-19 22:07:20
  */
-public interface BrandService extends IService<BrandEntity> {
+public interface BrandService extends IService<BrandEntity> {   //BrandService父接口提供crud方法
 
-    PageUtils queryPage(Map<String, Object> params);
+    PageUtils queryPage(Map<String, Object> params); //是一个分页查询
 }
 
