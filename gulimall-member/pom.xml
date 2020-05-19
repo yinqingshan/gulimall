@@ -7,10 +7,8 @@
         <artifactId>gulimall</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.yqs.gulimall</groupId>
+
     <artifactId>gulimall-member</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>gulimall-member</name>
     <description>谷粒商城-会员服务</description>
 
 
