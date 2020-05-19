@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 10000
 
 #配置数据源信息
 spring:
