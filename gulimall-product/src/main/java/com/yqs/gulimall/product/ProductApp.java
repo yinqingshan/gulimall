@@ -23,10 +23,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *        2> 配置数据源信息
  *           见application.yaml
  *     ii 配置mybatis-plus
- *        1> 配置mapper接口扫描注解：@MapperScan("com.yqs.gulimall.product.dao")
+ *        1> 由于dao层接口标注了@mapper注解，无需配置MapperScan注解。配置mapper接口扫描注解：@MapperScan("com.yqs.gulimall.product.dao")
  *        2> 指定mapper映射文件路径。见application.yaml
- *
- * (3)
  */
 @MapperScan("com.yqs.gulimall.product.dao")
 @SpringBootApplication

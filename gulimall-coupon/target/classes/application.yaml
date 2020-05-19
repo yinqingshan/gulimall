@@ -1,0 +1,15 @@
+#配置数据源信息
+spring:
+  datasource:
+    username: root
+    password: 173173   #data-password和data-username会报错
+    url: jdbc:mysql://192.168.1.6:3307/gulimall_sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#指定mapper映射文件路径
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml   #不指定则默认为：classpath*:/mapper/**/*.xml
+  #配置主键自增
+  global-config:
+    db-config:
+      id-type: auto

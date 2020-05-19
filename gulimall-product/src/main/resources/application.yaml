@@ -1,3 +1,6 @@
+server:
+  port: 9000
+
 #配置数据源信息
 spring:
   datasource:
@@ -12,4 +15,4 @@ mybatis-plus:
   #配置主键自增
   global-config:
     db-config:
-      id-type: auto
+    id-type: auto
