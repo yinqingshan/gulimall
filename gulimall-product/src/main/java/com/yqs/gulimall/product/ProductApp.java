@@ -1,8 +1,8 @@
 package com.yqs.gulimall.product;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * 1.整合mybatis-plus
@@ -26,7 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *        1> 由于dao层接口标注了@mapper注解，无需配置MapperScan注解。配置mapper接口扫描注解：@MapperScan("com.yqs.gulimall.product.dao")
  *        2> 指定mapper映射文件路径。见application.yaml
  */
-@MapperScan("com.yqs.gulimall.product.dao")
+@EnableDiscoveryClient
 @SpringBootApplication
 public class ProductApp {
     public static void main(String[] args) {

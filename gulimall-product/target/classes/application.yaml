@@ -1,5 +1,18 @@
-#配置数据源信息
+server:
+  port: 20000
+
+
 spring:
+  #配置应用名
+  application:
+    name: gulimall-product
+
+  #配置nacos-server地址
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+
+  #配置数据源信息
   datasource:
     username: root
     password: 173173   #data-password和data-username会报错
@@ -13,3 +26,4 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+
