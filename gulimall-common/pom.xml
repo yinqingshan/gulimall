@@ -13,7 +13,6 @@
     <description>每个服务共享部分</description>
 
     <dependencies>
-
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -51,7 +50,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
-
 
 
 </project>
