@@ -100,7 +100,7 @@ create table oms_order_return_apply
    sku_price            decimal(18,4),
    sku_real_price       decimal(18,4),
    reason               varchar(200),
-   description˶         varchar(500),
+   description          varchar(500),
    desc_pics            varchar(2000),
    handle_note          varchar(500),
    handle_man           varchar(200),
