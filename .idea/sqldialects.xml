@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/renren-fast/db/mysql.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/gulimall_oms/gulimall_oms.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/db/gulimall_pms/gulimall_pms.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/db/gulimall_sms/gulimall_sms.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/db/gulimall_ums/gulimall_ums.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/db/gulimall_wms/gulimall_wms.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/db/nacos_config/nacos_config.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/db/renren-fast/mysql.sql" dialect="MySQL" />
   </component>
 </project>
