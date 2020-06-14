@@ -1,27 +1,27 @@
-server:
-  port: 7000
-
-spring:
-  #配置应用名
-  application:
-    name: gulimall-order
-
-  #配置nacos-server地址
-  cloud:
-    nacos:
-      server-addr: 192.168.1.7:8848
-
-  #配置数据源信息
-  datasource:
-    username: root
-    password: 173173   #data-password和data-username会报错
-    url: jdbc:mysql://192.168.1.6:3307/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-#指定mapper映射文件路径
-mybatis-plus:
-  mapper-locations: classpath:/mapper/**/*.xml   #不指定则默认为：classpath*:/mapper/**/*.xml
-  #配置主键自增
-  global-config:
-    db-config:
-     id-type: auto
+#server:
+#  port: 7000
+#
+#spring:
+#  #配置应用名
+#  application:
+#    name: gulimall-order
+#
+#  #配置nacos-server地址
+#  cloud:
+#    nacos:
+#      server-addr: 192.168.1.7:8848
+#
+#  #配置数据源信息
+#  datasource:
+#    username: root
+#    password: 173173   #data-password和data-username会报错
+#    url: jdbc:mysql://192.168.1.6:3307/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+##指定mapper映射文件路径
+#mybatis-plus:
+#  mapper-locations: classpath:/mapper/**/*.xml   #不指定则默认为：classpath*:/mapper/**/*.xml
+#  #配置主键自增
+#  global-config:
+#    db-config:
+#     id-type: auto

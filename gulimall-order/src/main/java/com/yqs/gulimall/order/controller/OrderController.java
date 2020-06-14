@@ -9,12 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.Map;
-
-
-
 /**
- * 
- *
  * @author yinqingshan
  * @email yinqingshan@gmail.com
  * @date 2020-05-19 23:15:03

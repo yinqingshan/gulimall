@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "user.age",
+      "type": "java.lang.String",
+      "description": "Description for user.age."
+    },
+    {
+      "name": "account.name",
+      "type": "java.lang.String",
+      "description": "Description for account.name."
+    },
+    {
+      "name": "account.score.English",
+      "type": "java.lang.String",
+      "description": "Description for account.score.English."
+    }
+  ] }

@@ -1,0 +1,284 @@
+1.整合mybatis-plus
+  (1) 导入依赖：以来已经导入在common中
+          <dependency>
+              <groupId>com.baomidou</groupId>
+              <artifactId>mybatis-plus-boot-starter</artifactId>
+              <version>3.2.0</version>
+          </dependency>
+  (2) 配置
+      i  配置数据源
+         1> 导入数据库驱动（本次使用版本：5.5.62）
+              <dependency>
+                 <groupId>mysql</groupId>
+                 <artifactId>mysql-connector-java</artifactId>
+                 <version>8.0.15</version>
+              </dependency>
+         2> 配置数据源信息
+              spring:
+                datasource:
+                  username: root
+                  password: 173173   #data-password和data-username会报错
+                  url: jdbc:mysql://192.168.1.6:3307/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+                  driver-class-name: com.mysql.cj.jdbc.Driver
+      ii 配置mybatis-plus
+         1> 由于dao层接口标注了@mapper注解，无需配置MapperScan注解。配置mapper接口扫描注解：@MapperScan("com.yqs.gulimall.product.dao")
+         2> 指定mapper映射文件路径。
+               #指定mapper映射文件路径
+               mybatis-plus:
+                 mapper-locations: classpath:/mapper/**/*.xml   #不指定则默认为：classpath*:/mapper/**/*.xml
+                 #配置主键自增
+                 global-config:
+                   db-config:
+                    id-type: auto
+
+2.nacos服务注册发现
+  (1) 导入依赖：以来已经导入在common中
+      <dependencyManagement>
+          <!--spring-cloud-alibaba版本仲裁-->
+          <dependency>
+              <groupId>com.alibaba.cloud</groupId>
+              <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+              <version>2.2.0.RELEASE</version>
+              <type>pom</type>
+              <scope>import</scope>
+          </dependency>
+      </dependencyManagement>
+      <dependency>
+          <groupId>com.alibaba.cloud</groupId>
+          <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+      </dependency>
+  (2) 配置
+      i  配置nacos-server地址及服务信息
+           server:
+             port: 7000
+           spring:
+             #配置应用名
+             application:
+               name: gulimall-order
+             #配置nacos-server地址
+             cloud:
+               nacos:
+                 server-addr: 192.168.1.7:8848
+      ii 主方法开启nacos注册发现功能
+           @EnableDiscoveryClient
+           @SpringBootApplication
+           public class OrderApp {
+               public static void main(String[] args) {
+                   SpringApplication.run(OrderApp.class, args);
+               }
+           }
+  (3) 部署nacos-server服务
+      i  配置单机模式
+         docker run -d -e MODE=standalone -e PREFER_HOST_MODE=localhost -p 外端口:实例端口 --name nacos03 8afb574f2220
+      ii 配置单机模式持久化
+         1> 数据库初始化：创建nacos_config数据库并执行nacos_config.sql脚本
+         2> 挂载nacos-server目录并配置
+                mkdir -p /home/nacos/logs/
+                mkdir -p /home/nacos/init.d/
+                vim /home/nacos/init.d/custom.properties
+                ##
+                server.contextPath=/nacos
+                server.servlet.contextPath=/nacos
+                server.port=8848
+                spring.datasource.platform=mysql
+                db.num=1
+                db.url.0=jdbc:mysql://192.168.1.7:3306/nacos_config?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
+                db.user=root
+                db.password=173173
+                nacos.cmdb.dumpTaskInterval=3600
+                nacos.cmdb.eventTaskInterval=10
+                nacos.cmdb.labelTaskInterval=300
+                nacos.cmdb.loadDataAtStart=false
+                management.metrics.export.elastic.enabled=false
+                management.metrics.export.influx.enabled=false
+                server.tomcat.accesslog.enabled=true
+                server.tomcat.accesslog.pattern=%h %l %u %t "%r" %s %b %D %{User-Agent}i
+                nacos.security.ignore.urls=/,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,
+                /console-fe/public/**,/v1/auth/login,/v1/console/health/**,/v1/cs/**,/v1/ns/**,/v1/cmdb/**,/actuator/**,/v1/console/server/**
+                nacos.naming.distro.taskDispatchThreadCount=1
+                nacos.naming.distro.taskDispatchPeriod=200
+                nacos.naming.distro.batchSyncKeyCount=1000
+                nacos.naming.distro.initDataRatio=0.9
+                nacos.naming.distro.syncRetryDelay=5000
+                nacos.naming.data.warmup=true
+                nacos.naming.expireInstance=true
+         3> 运行容器创建镜像
+                   docker  run \
+                   --name nacos_db -d \
+                   -p 8849:8849 \
+                   --privileged=true \
+                   --restart=always \
+                   -e JVM_XMS=256m \
+                   -e JVM_XMX=256m \
+                   -e MODE=standalone \
+                   -e PREFER_HOST_MODE=hostname \
+                   -v /home/nacos/logs:/home/nacos/logs \
+                   -v /home/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties \
+                   d00c56352825
+  (3) 启动服务和nacos-server
+3.open-feign远程调用
+  (1) 导入依赖：以来已经导入在common中
+      <dependencyManagement>
+          <dependencies>
+              <!--spring-cloud版本仲裁-->
+              <dependency>
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-dependencies</artifactId>
+                  <version>Hoxton.SR4</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>
+      </dependencyManagement>
+      <dependency>
+          <groupId>com.baomidou</groupId>
+          <artifactId>spring-cloud-starter-openfeign</artifactId>
+      </dependency>
+  (2) 编写远程调用接口
+      新建接口：com.yqs.gulimall.order.feign.ProductFeign
+      package com.yqs.gulimall.order.feign;
+
+      @FeignClient("gulimall-product")  //声明该接口是远程调用接口，调用的服务名是“gulimall-product”(此名是注册中心中注册的服务名)
+      public interface ProductFeign {
+
+          @RequestMapping("product/category/info/{catId}")  //被调用方法的访问url
+          R info(@PathVariable("catId") Long catId);   // 被调用方法的方法标签
+
+      }
+  (3) 开启远程调用功能
+      @EnableFeignClients(basePackages="com.yqs.gulimall.order.feign")  //开启远程调用,指定远程接口所在包
+      @EnableDiscoveryClient
+      @SpringBootApplication
+      public class OrderApp {
+          public static void main(String[] args) {
+              SpringApplication.run(OrderApp.class, args);
+          }
+      }
+  (4) 调用远程接口
+      package com.yqs.gulimall.order.controller.feign;
+
+      @RestController
+      @RequestMapping("oder/order")
+      public class TestFeign {
+
+          @Autowired
+          ProductFeign productFeign;
+
+          @GetMapping("/test/{id}")
+          public R testRemoteInterface(@PathVariable("id") Long id){
+
+              R info = productFeign.info(id);
+              return R.ok().put("info",info);
+          }
+      }
+4.nacos配置中心
+  (1) 导入依赖：以来已经导入在common中
+      <dependencyManagement>
+          <!--spring-cloud-alibaba版本仲裁-->
+          <dependency>
+              <groupId>com.alibaba.cloud</groupId>
+              <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+              <version>2.2.0.RELEASE</version>
+              <type>pom</type>
+              <scope>import</scope>
+          </dependency>
+      </dependencyManagement>
+      <dependency>
+          <groupId>com.alibaba.cloud</groupId>
+          <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+      </dependency>
+  (2) 编写bootstrap.yaml配置文件
+      spring:
+        #配置应用名
+        application:
+          name: gulimall-order
+        #配置nacos配置中心地址
+        cloud:
+          nacos:
+            config:
+              server-addr: 192.168.1.7:8848
+  (3) 在nacos配置列表中创建配置文件。(当服务启动时，会加载配置中的服务名.properties文件，优先读取该配置文件的值,没有才会去服务中配置文件寻找)
+      切记:配置中心得文件是服务名.properties,使用properties文件配置风格,不然不生效果
+      account.name=陈婷婷
+      account.age=36
+      account.hobbies=唱,跳,rap,篮球1
+  (4) 在处理器方法上添加@RefreshScope注解,实现配置修改自动生效功能.
+      @RefreshScope
+      @RestController
+      @RequestMapping("oder/order")
+      public class TestNacosConfig {
+
+          @Value("${account.name}")
+          private String name;
+          @Value("${account.age}")
+          private Integer age;
+          @Value("${account.hobbies}")
+          private List<String> hobbies;
+
+          @RequestMapping("/testNacosConfig")
+          public R testNacosConfig(){
+
+              return R.ok().put("姓名",name).put("age",age).put("hobbies", hobbies);
+          }
+      }
+      注：实现从配置文件读取数据，必须引入:
+      <!--配置文件处理器-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-configuration-processor</artifactId>
+          <optional>true</optional>
+      </dependency>
+5.nacos配置中心深入
+  (1) 命名空间：核心是为了配置隔离。利用命名，命名空间实现环境隔离。默认命名空间public
+      1> 在bootstrap.yml中配置指定加载的命名空间。若不指定则加载默认命名空间public。
+      2> 可自定义开发、测试、生产等命名空间。也可以为每个微服务创建一个独立的命名空间
+              命名空间名称        命名空间ID                                   配置数
+              dev                03479070-89e7-4ec8-a11b-b8920fc68848       0
+              test               51ecffaa-7251-43a9-8a9c-1c7b101b58a6       0
+              prop               25033355-7d2d-4f10-b987-03bc00af98c5       1
+              gulimall-order     23558825-e10c-41da-96f3-dd0e06154f32       1
+      3> 指定加载prop命名空间
+         spring:
+           cloud:
+             nacos:
+               config:
+                 namespace: 23558825-e10c-41da-96f3-dd0e06154f32   #指定加载prop命名空间
+  (2) 配置集:所有配置的集合。一个配置文件就是一个配置集
+  (3) 配置集ID
+      在工程中配置集ID：application.yaml；
+      在nacos中配置集ID：Data ID
+  (4) 配置分组
+      1> 默认所有的配置集都属于默认配置分组：DEFAULT_GROUP
+      2> 同一个命名空间的同一个配置集可以属于多个配置组。
+             Data Id                          Group               操作
+             gulimall-order.properties        DEFAULT_GROUP       详情|示例代码|编辑|删除|更多
+             gulimall-order.properties        开发                详情|示例代码|编辑|删除|更多
+             gulimall-order.properties        定板                详情|示例代码|编辑|删除|更多
+             gulimall-order.properties        预演                详情|示例代码|编辑|删除|更多
+             gulimall-order.properties        生产                详情|示例代码|编辑|删除|更多
+         可以在bootstrap.yaml中指定加载的配置分组
+         spring:
+           application:
+             name: gulimall-order
+           cloud:
+             nacos:
+               config:
+                 namespace: 23558825-e10c-41da-96f3-dd0e06154f32  # 指定加载prop命名空间
+                 group: 生产    # 指定加载“生产”配置分组
+      2> 命名空间+配置分组设置联合使用
+         每个微服务有一个命名空间，该命名空间的同一配置集所属不同配置分组，达到切换环境功能
+  (5) 配置集抽取，nacos管理多配制集
+      spring.application.name=gulimall-order
+      spring.cloud.nacos.config.server-addr=192.168.1.7:8848
+      #指定gulimall-order微服务名称空间
+      spring.cloud.nacos.config.namespace=23558825-e10c-41da-96f3-dd0e06154f32
+      #指定配置集ID及配置分组
+      spring.cloud.nacos.config.extension-configs[0].data-id=server.yaml
+      spring.cloud.nacos.config.extension-configs[0].group=dev
+      spring.cloud.nacos.config.extension-configs[1].data-id=nacos.yaml
+      spring.cloud.nacos.config.extension-configs[1].group=dev
+      spring.cloud.nacos.config.extension-configs[2].data-id=dataSource.yaml
+      spring.cloud.nacos.config.extension-configs[2].group=dev
+      spring.cloud.nacos.config.extension-configs[3].data-id=mybatisPlus.yaml
+      spring.cloud.nacos.config.extension-configs[3].group=dev
+      spring.cloud.nacos.config.extension-configs[4].data-id=properties.yaml  #无法将map类型数据直接用@Value注入到变量中
+      spring.cloud.nacos.config.extension-configs[4].group=dev
