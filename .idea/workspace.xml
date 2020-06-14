@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb5e28bb-e690-4a74-b75d-3b79c10f2555" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/nacos_config.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/nacos/nacos_config.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-fast/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-fast/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-fast/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/src/main/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-fast/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-fast/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,9 +109,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\java\code\java\gulimall\gulimall-order\src\main\resources" />
-      <recent name="D:\programer\java\gulimall\db\gulimall_wms" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\code\java\gulimall\db\gulimall_oms" />
+      <recent name="D:\programer\java\gulimall\gulimall-ware\src\main\resources" />
+      <recent name="D:\programer\java\gulimall\gulimall-order\src\main\resources" />
+      <recent name="D:\programer\java\gulimall\gulimall-member\src\main\resources" />
+      <recent name="D:\programer\java\gulimall\gulimall-coupon\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.yqs.gulimall.ware" />
@@ -116,12 +123,9 @@
       <recent name="com.yqs.gulimall.coupon" />
       <recent name="com.yqs.common.utils" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\code\java\gulimall\db\gulimall_oms" />
-      <recent name="D:\programer\java\gulimall\gulimall-ware\src\main\resources" />
-      <recent name="D:\programer\java\gulimall\gulimall-order\src\main\resources" />
-      <recent name="D:\programer\java\gulimall\gulimall-member\src\main\resources" />
-      <recent name="D:\programer\java\gulimall\gulimall-coupon\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java\code\java\gulimall\gulimall-order\src\main\resources" />
+      <recent name="D:\programer\java\gulimall\db\gulimall_wms" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -131,7 +135,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApp">
+  <component name="RunManager" selected="Spring Boot.RenrenApplication">
     <configuration name="GulimallOrderApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-order" />
       <extension name="coverage">
@@ -209,7 +213,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.11904762" />
+          <option name="contentProportion" value="0.13419913" />
           <treeState>
             <expand>
               <path>
@@ -255,6 +259,7 @@
       <workItem from="1592028844897" duration="18354000" />
       <workItem from="1592112944600" duration="15609000" />
       <workItem from="1592146607966" duration="515000" />
+      <workItem from="1592150347068" duration="1182000" />
     </task>
     <task id="LOCAL-00001" summary="初步搭建工程完毕 v1.0">
       <created>1589802705080</created>
@@ -480,38 +485,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="652" y="283" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591886305164" />
-    <state width="1627" height="346" key="GridCell.Tab.0.bottom" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.0.bottom" timestamp="1592151286383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
-    <state width="1627" height="346" key="GridCell.Tab.0.center" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286383" />
+    <state width="1599" height="226" key="GridCell.Tab.0.center" timestamp="1592151286383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
-    <state width="1627" height="346" key="GridCell.Tab.0.left" timestamp="1592126812940">
+    <state width="1599" height="226" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286383" />
+    <state width="1599" height="226" key="GridCell.Tab.0.left" timestamp="1592151286383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812940" />
-    <state width="1627" height="346" key="GridCell.Tab.0.right" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286383" />
+    <state width="1599" height="226" key="GridCell.Tab.0.right" timestamp="1592151286383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
-    <state width="1627" height="346" key="GridCell.Tab.1.bottom" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286383" />
+    <state width="1599" height="226" key="GridCell.Tab.1.bottom" timestamp="1592151286384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
-    <state width="1627" height="346" key="GridCell.Tab.1.center" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286384" />
+    <state width="1599" height="226" key="GridCell.Tab.1.center" timestamp="1592151286384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
-    <state width="1627" height="346" key="GridCell.Tab.1.left" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286384" />
+    <state width="1599" height="226" key="GridCell.Tab.1.left" timestamp="1592151286384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
-    <state width="1627" height="346" key="GridCell.Tab.1.right" timestamp="1592126812941">
+    <state width="1599" height="226" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286384" />
+    <state width="1599" height="226" key="GridCell.Tab.1.right" timestamp="1592151286384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1627" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592126812941" />
+    <state width="1599" height="226" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592151286384" />
     <state x="490" y="175" key="Maven.ArtifactSearchDialog" timestamp="1589915133828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
