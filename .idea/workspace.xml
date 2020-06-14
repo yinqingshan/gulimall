@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb5e28bb-e690-4a74-b75d-3b79c10f2555" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/beans/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/controller/feign/TestFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/controller/test/TestNacosConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nacos_config.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/笔记1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/笔记2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac93513c-76b4-4a85-9c9b-64d3e1b4a16a.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac93513c-76b4-4a85-9c9b-64d3e1b4a16a/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/gulimall-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/gulimall-common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/gulimall-coupon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/gulimall-coupon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/gulimall-member.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/gulimall-member.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/gulimall-order.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/gulimall-order.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/OrderApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/OrderApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yqs/gulimall/order/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/test/java/com/yqs/gulimall/order/GulimallOrderApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/test/java/com/yqs/gulimall/order/GulimallOrderApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/com/yqs/gulimall/order/OrderApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/com/yqs/gulimall/order/OrderApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/classes/com/yqs/gulimall/order/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/classes/com/yqs/gulimall/order/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/target/test-classes/com/yqs/gulimall/order/GulimallOrderApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/target/test-classes/com/yqs/gulimall/order/GulimallOrderApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/gulimall-product.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/gulimall-product.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/gulimall-ware.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/gulimall-ware.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nacos_config.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/nacos/nacos_config.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +254,7 @@
       <workItem from="1591886255494" duration="5926000" />
       <workItem from="1592028844897" duration="18354000" />
       <workItem from="1592112944600" duration="15609000" />
-      <workItem from="1592146607966" duration="168000" />
+      <workItem from="1592146607966" duration="515000" />
     </task>
     <task id="LOCAL-00001" summary="初步搭建工程完毕 v1.0">
       <created>1589802705080</created>
@@ -408,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591899805032</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="nacos配置中心抽取application.yaml文件并实现动态加载 v1.0">
+      <created>1592147031772</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1592147031772</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +424,8 @@
     <MESSAGE value="指定远程nacos server  v1.1" />
     <MESSAGE value="调整sql脚本" />
     <MESSAGE value="调整sql脚本 v1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整sql脚本 v1.2" />
+    <MESSAGE value="nacos配置中心抽取application.yaml文件并实现动态加载 v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="nacos配置中心抽取application.yaml文件并实现动态加载 v1.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="212" key="#HTTP_Proxy" timestamp="1591887010147">
@@ -486,10 +468,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="602" y="274" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592040691662" />
-    <state x="349" y="123" key="CommitChangelistDialog2" timestamp="1592146958785">
+    <state x="349" y="123" key="CommitChangelistDialog2" timestamp="1592147031142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="349" y="123" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1592146958785" />
+    <state x="349" y="123" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1592147031142" />
     <state x="96" y="94" key="DiffContextDialog" timestamp="1591991784877">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -542,10 +524,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="373" y="170" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592146707013" />
-    <state x="464" y="261" key="Vcs.Push.Dialog.v2" timestamp="1591900132566">
+    <state x="464" y="261" key="Vcs.Push.Dialog.v2" timestamp="1592147047401">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="464" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591900132566" />
+    <state x="464" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592147047401" />
     <state x="636" y="253" width="647" height="534" key="find.popup" timestamp="1589823435103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
